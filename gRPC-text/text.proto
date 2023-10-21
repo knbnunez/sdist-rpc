@@ -1,0 +1,13 @@
+syntax = "proto3"; // Especificación de la versión del paquete = 3
+
+// Definición de un servicio
+service TextService { 
+  // Definición de sus procedimientos: están implementados en server.py
+  rpc SaveText(TextRequest) returns (TextResponse);
+  rpc GetTextTimestamp(TextIndex) returns (TextResponse);
+}
+
+// Definición de los parámetros usados por los procedimientos:
+message TextRequest { string text = 1; } // Para el pasaje del string
+message TextResponse { string timestamp = 1; string text = 2; int32 index = 3; } // Para informar el timestamp y su texto asociado
+message TextIndex { int32 index = 1; } // Para la consulta del timestamp de un string enviado
