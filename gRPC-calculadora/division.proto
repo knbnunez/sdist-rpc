@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+// Definición del servicio
+service DivisionService {
+  // Procedimientos del servicio:
+  rpc Divide(DivideRequest) returns (DivideResponse);
+}
+
+// Definición de los mensajes (y su contenido) usados por los procedimientos:
+message DivideRequest { double dividend = 1; double divisor = 2; }
+message DivideResponse { double result = 1; }

@@ -30,10 +30,10 @@ class TextServiceServicer(text_pb2_grpc.TextServiceServicer):
 
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10)) # Crea el servidor gRPC y configurar un ThreadPoolExecutor para manejar las solicitudes
-    text_pb2_grpc.add_TextServiceServicer_to_server(TextServiceServicer(), server) # Registrar la implementación del servicio TextService en el servidor. TextServiceServicer() es la clase que contiene la implementación de los procedimientos del servicio
+    text_pb2_grpc.add_TextServiceServicer_to_server(TextServiceServicer(), server) # Registra la implementación del servicio TextService en el servidor. TextServiceServicer() es la clase que contiene la implementación de los procedimientos del servicio
     server.add_insecure_port('[::]:50051') # Agregar un puerto inseguro (sin cifrado) al servidor. '[::]:50051' indica que escuchará en todas las interfaces (de red disponibles en la máquina) en el puerto 50051. '[::]' hace referencia a notación en IPv6
-    print("Servicio en línea...")
     server.start()
+    print("Servicio en línea...")
     server.wait_for_termination() # Puede ser por un mensaje del cliente o un simple Ctrl+C
 
 if __name__ == '__main__':
