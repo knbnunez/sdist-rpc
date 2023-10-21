@@ -15,7 +15,7 @@ def get_text_timestamp(stub):
     if response.timestamp != "Text not found":
         print("Texto:", response.text)
         print("Timestamp:", response.timestamp)
-        print("Almacenado en :", response.index)
+        print("Índice de almacenamiento :", response.index)
     else:
         print("Text not found")
 
